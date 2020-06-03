@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Paper, TextField } from "@material-ui/core";
 
 function TodoForm() {
-    return (
-        <div>
-            TodoForm
-        </div>
-    )
+  return (
+    <Paper>
+      <TextField />
+    </Paper>
+  );
 }
 
 export default TodoForm;
