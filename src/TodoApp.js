@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import TodoList from "./TodoList";
 
 function TodoApp() {
   const initialTodos = [
@@ -23,6 +24,7 @@ function TodoApp() {
           <Typography color="inherit">Just Do It</Typography>
         </Toolbar>
       </AppBar>
+      <TodoList todos={todos} />
     </Paper>
   );
 }
