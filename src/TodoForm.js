@@ -17,7 +17,7 @@ function TodoForm({ addTodo }) {
           value={value}
           onChange={handleChange}
           margin="normal"
-          label="Add New Todo" 
+          label="Add New Todo"
           fullWidth
         />
       </form>
