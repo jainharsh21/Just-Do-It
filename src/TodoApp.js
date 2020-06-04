@@ -3,6 +3,7 @@ import Paper from "@material-ui/core/Paper";
 import { AppBar, Toolbar, Typography, Grid } from "@material-ui/core";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
+import { v4 as uuid } from "uuid";
 
 function TodoApp() {
   const initialTodos = [
@@ -13,7 +14,7 @@ function TodoApp() {
 
   const [todos, setTodos] = useState(initialTodos);
   const addTodo = (newTodoText) => {
-    setTodos([...todos, { id: 4, task: newTodoText, completed: false }]);
+    setTodos([...todos, { id: uuid(), task: newTodoText, completed: false }]);
   };
   const removeTodo = (todoId) => {
     const updatedTodos = todos.filter((todo) => todo.id !== todoId);
