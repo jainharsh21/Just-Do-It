@@ -1,9 +1,12 @@
-import React from "react";
-import { TextField } from "@material-ui/core";
+import React, { useContext } from "react";
 import useInputState from "./hooks/useInputState";
+import TextField from "@material-ui/core/TextField";
+import { TodosContext } from "./contexts/todos.context";  
 
-function EditTodoForm({ id, editTodo, task, toggleEditForm }) {
+function EditTodoForm({ id, task, toggleEditForm }) {
+  const { editTodo } = useContext(TodosContext);
   const [value, handleChange, reset] = useInputState(task);
+  console.log("EDIT FORM RE-RENDER");
   return (
     <form
       onSubmit={(e) => {
@@ -19,10 +22,9 @@ function EditTodoForm({ id, editTodo, task, toggleEditForm }) {
         value={value}
         onChange={handleChange}
         fullWidth
-        autoFocus 
+        autoFocus
       />
     </form>
   );
 }
-
 export default EditTodoForm;
