@@ -1,20 +1,18 @@
-import React, { useEffect } from "react";
-import useTodoState from "./hooks/useTodoState";
-import Paper from "@material-ui/core/Paper";
-import { AppBar, Toolbar, Typography, Grid } from "@material-ui/core";
+import React from "react";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
+import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Grid from "@material-ui/core/Grid";
+import useTodoState from "./hooks/useTodoState";
 
 function TodoApp() {
-  const initialTodos = JSON.parse(window.localStorage.getItem("todos") || [""]);
+  const initialTodos = [{ id: 1, task: "Walk The Goldfish", completed: true }];
   const { todos, addTodo, removeTodo, toggleTodo, editTodo } = useTodoState(
     initialTodos
   );
-
-  useEffect(() => {
-    window.localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
   return (
     <Paper
       style={{
@@ -23,10 +21,11 @@ function TodoApp() {
         height: "100vh",
         backgroundColor: "#fafafa",
       }}
+      elevation={0}
     >
       <AppBar color="primary" position="static" style={{ height: "64px" }}>
         <Toolbar>
-          <Typography color="inherit">Just Do It</Typography>
+          <Typography color="inherit">TODOS WITH HOOKS</Typography>
         </Toolbar>
       </AppBar>
       <Grid container justify="center" style={{ marginTop: "1rem" }}>
